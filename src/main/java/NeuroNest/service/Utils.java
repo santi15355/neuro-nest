@@ -12,7 +12,7 @@ public class Utils {
             JSONObject jsonObject = new JSONObject(response.toString());
             String content = jsonObject.getJSONArray("choices").getJSONObject(0)
                     .getJSONObject("message").getString("content");
-            return content;
+                        return content;
         } catch (JSONException e) {
             // Обработка ошибки парсинга JSON
             e.printStackTrace();

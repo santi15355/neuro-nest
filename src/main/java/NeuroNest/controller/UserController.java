@@ -8,23 +8,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/chat")
 public class UserController {
 
     private final AI ai;
 
     @GetMapping()
-    public ModelAndView user() {
-        return new ModelAndView("user");
+    public ModelAndView chat() {
+        return new ModelAndView("chat");
     }
 
     @PostMapping()
-    public ModelAndView user(@RequestParam("userMessage") String userMessage) {
-        ModelAndView user = new ModelAndView();
+    public ModelAndView chat(@RequestParam("userMessage") String userMessage) {
+        ModelAndView chat = new ModelAndView();
         String answerFromAi = ai.getAnswerFromAI(userMessage);
-        user.addObject("answer", answerFromAi);
+        chat.addObject("answer", answerFromAi);
 
-        return user;
+        return chat;
     }
 
 }
